@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hariom Solanki — Portfolio & Work</title>
+  <meta name="description" content="Portfolio of Hariom Solanki - Frontend & Full-Stack Engineer showcasing Easy Vyapar ERP and featured work.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-base: #fbfbfa;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f4f4f1;
+      --bg-soft-blue: #f0f7ff;
+      --bg-soft-emerald: #f0fdf4;
+      --bg-soft-amber: #fffbeb;
+      --bg-soft-purple: #faf5ff;
+
+      --text-main: #191918;
+      --text-muted: #73726e;
+      --text-subtle: #9c9a94;
+
+      --border-light: #ecebe6;
+      --border-subtle: #e2e1db;
+      --border-focus: #c8c6bc;
+
+      --accent-primary: #191918;
+      --accent-blue: #2563eb;
+      --accent-emerald: #059669;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+
+      --shadow-soft: 0 2px 8px -2px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+      --shadow-card: 0 4px 20px -4px rgba(0, 0, 0, 0.04), 0 1px 4px rgba(0, 0, 0, 0.02);
+      --shadow-card-hover: 0 14px 34px -8px rgba(0, 0, 0, 0.07), 0 2px 6px rgba(0, 0, 0, 0.03);
+
+      --transition-smooth: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      position: relative;
+    }
+
+    /* Soft ambient background glow */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(230, 240, 255, 0.6) 0%, rgba(254, 243, 235, 0.4) 50%, transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(40px);
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 24px 80px 24px;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    /* Nav / Header Bar */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 64px;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, #191918 0%, #44433f 100%);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-bottom: 56px;
+    }
+
+    .availability-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent-emerald);
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--accent-emerald);
+      box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
+      animation: pulse 2.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.9); }
+    }
+
+    .hero-title {
+      font-size: 2.75rem;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.18;
+      margin-bottom: 16px;
+      color: var(--text-main);
+    }
+
+    .hero-title .gradient-text {
+      background: linear-gradient(135deg, #191918 30%, #52504a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 1.08rem;
+      color: var(--text-muted);
+      max-width: 620px;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .social-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-full);
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition-smooth);
+    }
+
+    .social-btn:hover {
+      border-color: var(--border-focus);
+      background-color: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-card);
+    }
+
+    .social-btn svg {
+      width: 15px;
+      height: 15px;
+      stroke-width: 2;
+    }
+
+    /* Section Header */
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      font-size: 0.84rem;
+      color: var(--text-subtle);
+    }
+
+    /* Featured Project Card */
+    .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 56px;
+    }
+
+    .project-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card:hover {
+      border-color: var(--border-subtle);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .project-badge-strip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-primary {
+      background-color: var(--bg-soft-blue);
+      color: var(--accent-blue);
+    }
+
+    .badge-emerald {
+      background-color: var(--bg-soft-emerald);
+      color: var(--accent-emerald);
+    }
+
+    .badge-subtle {
+      background-color: var(--bg-subtle);
+      color: var(--text-muted);
+    }
+
+    .project-header-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .project-name {
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+    }
+
+    .project-tagline {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .project-desc {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 24px;
+      max-width: 720px;
+    }
+
+    /* Key Metrics Mini Grid */
+    .feature-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 28px;
+      padding: 16px;
+      background-color: var(--bg-base);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+    }
+
+    .highlight-box {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .hl-title {
+      font-size: 0.74rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-subtle);
+    }
+
+    .hl-val {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    /* Project Action Buttons */
+    .project-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-launch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      background-color: var(--accent-primary);
+      color: #ffffff;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    .btn-launch:hover {
+      background-color: #33322e;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background-color: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--bg-subtle);
+      border-color: var(--border-focus);
+    }
+
+    /* Secondary / Coming Soon Project Card */
+    .card-secondary {
+      background: var(--bg-surface);
+      border: 1px dashed var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .secondary-info h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .secondary-info p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Tech Stack Strip */
+    .tech-stack {
+      margin-bottom: 60px;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-main);
+      box-shadow: var(--shadow-soft);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      padding-top: 36px;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: var(--text-subtle);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    footer a:hover {
+      color: var(--text-main);
+    }
+
+    @media (max-width: 640px) {
+      .hero-title {
+        font-size: 2.1rem;
+      }
+      .project-card {
+        padding: 24px;
+      }
+      .card-secondary {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      header {
+        margin-bottom: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation -->
+    <header>
+      <a href="/" class="brand-mark">
+        <div class="brand-avatar">HS</div>
+        <span>Hariom Solanki</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="https://github.com/solnkihariom" target="_blank" rel="noopener noreferrer" class="nav-link">
+          GitHub
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+        </a>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="availability-pill">
+        <span class="status-dot"></span>
+        <span>Open to projects & engineering roles</span>
+      </div>
+
+      <h1 class="hero-title">
+        Building high-performance software with <span class="gradient-text">speed, clarity, and precision.</span>
+      </h1>
+
+      <p class="hero-desc">
+        Hi, I'm <strong>Hariom</strong>. I design and build modern web applications, retail point-of-sale ERPs, and component design systems using Angular, TypeScript, and cloud-ready architectures.
+      </p>
+
+      <div class="social-pills">
+        <a href="https://github.com/solnkihariom" target="_blank" rel="noopener noreferrer" class="social-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          <span>GitHub</span>
+        </a>
+        <a href="mailto:01hariom.s@gmail.com" class="social-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <span>01hariom.s@gmail.com</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <div class="section-head">
+        <h2 class="section-title">Featured Project</h2>
+        <span class="section-subtitle">Live Applications</span>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project Card 1: Easy Vyapar -->
+        <article class="project-card">
+          <div class="project-badge-strip">
+            <span class="badge badge-primary">Angular 21</span>
+            <span class="badge badge-emerald">Live Demo</span>
+            <span class="badge badge-subtle">Retail POS & ERP</span>
+            <span class="badge badge-subtle">Design System</span>
+          </div>
+
+          <div class="project-header-row">
+            <div>
+              <h3 class="project-name">Easy Vyapar</h3>
+              <span class="project-tagline">smart vyapar saathi · Fast Retail & Supermart POS ERP</span>
+            </div>
+          </div>
+
+          <p class="project-desc">
+            A comprehensive, high-speed retail point-of-sale ERP frontend tailored for Indian supermarts. Features immediate spot payments (Cash, UPI/QR, Card POS), thermal receipt hardware integration, live inventory management, and a custom design system with dual light/dark themes.
+          </p>
+
+          <!-- Key Highlights -->
+          <div class="feature-highlights">
+            <div class="highlight-box">
+              <span class="hl-title">Architecture</span>
+              <span class="hl-val">Angular 21 Standalone</span>
+            </div>
+            <div class="highlight-box">
+              <span class="hl-title">Design System</span>
+              <span class="hl-val">Custom Common-Lib</span>
+            </div>
+            <div class="highlight-box">
+              <span class="hl-title">Settlement</span>
+              <span class="hl-val">Instant Spot Tender</span>
+            </div>
+            <div class="highlight-box">
+              <span class="hl-title">Theme</span>
+              <span class="hl-val">Pulse Warm / Dark</span>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="project-actions">
+            <a href="easyvyapar/" class="btn-launch">
+              <span>🚀 Launch Live Demo</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+            <a href="https://github.com/solnkihariom/EasyVyaparUI" target="_blank" rel="noopener noreferrer" class="btn-outline">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              <span>View Source</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Secondary Project Placeholder -->
+        <div class="card-secondary">
+          <div class="secondary-info">
+            <h3>More Projects In Development</h3>
+            <p>Backend microservices, real-time sync engines, and API architecture.</p>
+          </div>
+          <span class="badge badge-subtle">Coming Soon</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Arsenal -->
+    <section class="tech-stack">
+      <div class="section-head">
+        <h2 class="section-title">Core Technologies</h2>
+      </div>
+
+      <div class="skills-grid">
+        <span class="skill-chip">Angular 21</span>
+        <span class="skill-chip">TypeScript</span>
+        <span class="skill-chip">RxJS & Signals</span>
+        <span class="skill-chip">SCSS & Design Tokens</span>
+        <span class="skill-chip">Node.js</span>
+        <span class="skill-chip">REST APIs</span>
+        <span class="skill-chip">Git & GitHub Actions</span>
+        <span class="skill-chip">Responsive Web</span>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <span>© 2026 Hariom Solanki. Hosted on GitHub Pages.</span>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+
+  </div>
+
+</body>
+</html>
+
